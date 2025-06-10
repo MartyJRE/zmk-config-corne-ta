@@ -6,6 +6,7 @@
 #define NUMBERS 1 // lower_layer index
 #define SYMBOLS 2 // raise_layer index
 #define SYSTEM 3 // tri_layer index
+#define MACROS 4 // macro_layer index
 
 // Meh = Ctrl + Shift + Alt
 #define MEH LA(LC(LSHIFT))
@@ -34,6 +35,122 @@
     hold-time-ms = <100>;
 };
 
+/ {
+    macros {
+        rename: rename {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press &kp LCTRL &kp LALT &kp LSHIFT>
+                , <&macro_tap &kp R>
+                , <&macro_release &kp LCTRL &kp LALT &kp LSHIFT>
+                , <&macro_wait_time 100>
+                , <&macro_tap &kp R>
+                ;
+        };
+        signature: signature {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press &kp LCTRL &kp LALT &kp LSHIFT>
+                , <&macro_tap &kp C>
+                , <&macro_release &kp LCTRL &kp LALT &kp LSHIFT>
+                , <&macro_wait_time 100>
+                , <&macro_tap &kp S>
+                ;
+        };
+        constant: constant {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press &kp LCTRL &kp LALT &kp LSHIFT>
+                , <&macro_tap &kp R>
+                , <&macro_release &kp LCTRL &kp LALT &kp LSHIFT>
+                , <&macro_wait_time 100>
+                , <&macro_tap &kp C>
+                ;
+        };
+        field: field {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press &kp LCTRL &kp LALT &kp LSHIFT>
+                , <&macro_tap &kp R>
+                , <&macro_release &kp LCTRL &kp LALT &kp LSHIFT>
+                , <&macro_wait_time 100>
+                , <&macro_tap &kp F>
+                ;
+        };
+        param: param {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press &kp LCTRL &kp LALT &kp LSHIFT>
+                , <&macro_tap &kp R>
+                , <&macro_release &kp LCTRL &kp LALT &kp LSHIFT>
+                , <&macro_wait_time 100>
+                , <&macro_tap &kp P>
+                ;
+        };
+        method: method {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press &kp LCTRL &kp LALT &kp LSHIFT>
+                , <&macro_tap &kp R>
+                , <&macro_release &kp LCTRL &kp LALT &kp LSHIFT>
+                , <&macro_wait_time 100>
+                , <&macro_tap &kp M>
+                ;
+        };
+        inl: inl {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press &kp LGUI &kp LALT>
+                , <&macro_tap &kp N>
+                , <&macro_release &kp LGUI &kp LALT>
+                ;
+        };
+        cloneUp: cloneUp {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press &kp LCTRL &kp LALT &kp LSHIFT>
+                , <&macro_tap &kp UP>
+                , <&macro_release &kp LCTRL &kp LALT &kp LSHIFT>
+                ;
+        };
+        cloneDown: cloneDown {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press &kp LCTRL &kp LALT &kp LSHIFT>
+                , <&macro_tap &kp DOWN>
+                , <&macro_release &kp LCTRL &kp LALT &kp LSHIFT>
+                ;
+        };
+        cloneLeft: cloneLeft {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press &kp LCTRL &kp LALT &kp LSHIFT>
+                , <&macro_tap &kp LEFT>
+                , <&macro_release &kp LCTRL &kp LALT &kp LSHIFT>
+                ;
+        };
+        cloneRight: cloneRight {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press &kp LCTRL &kp LALT &kp LSHIFT>
+                , <&macro_tap &kp RIGHT>
+                , <&macro_release &kp LCTRL &kp LALT &kp LSHIFT>
+                ;
+        };
+    };
+};
+
 // Key index reference:
 
 // 00 01 02 03 04 05 | 06 07 08 09 10 11
@@ -58,9 +175,9 @@
         compatible = "zmk,keymap";
 
         default_layer {
-            label = "alphas";
+            label = "ABC";
             bindings = <
-                &kp DEL       &kp Q       &mt RG(W) W &kp E       &mt RG(R) R &mt RG(T) T      &mt MEH Y     &kp U     &kp I      &kp O   &kp P         &kp BSLH
+                &kp DEL       &mt RG(Q) Q &mt RG(W) W &kp E       &mt RG(R) R &mt RG(T) T      &lt MACROS Y     &kp U     &kp I      &kp O   &kp P         &kp BSLH
                 &mt LCTRL ESC &mt RG(A) A &mt RG(S) S &mt LBKT D  &mt LPAR F  &mt LBRC G       &mt RBRC H    &mt RPAR J    &mt RBKT K &kp L   &kp SEMI      &kp SQT
                 &kp LSHFT     &mt RG(Z) Z &mt RG(X) X &mt RG(C) C &mt RG(V) V &mt RG(B) B      &mt LGUI N    &mt LG(M) M   &kp COMMA  &kp DOT &mt LG(FSLH) FSLH &kp RCTRL
                                       &mo NUMBERS &mt RGUI SPACE  &kp BSPC     &mt RGUI TAB  &mt RALT RET  &mo SYMBOLS
@@ -68,7 +185,7 @@
         };
 
         lower_layer {
-            label = "numbers";
+            label = "123";
             bindings = <
                 &trans &kp N1 &kp N2 &kp N3    &kp N4    &kp N5         &kp N6 &kp N7    &kp N8   &kp N9    &kp N0 &trans
                 &trans &trans &trans &kp GRAVE &kp EQUAL &trans         &trans &kp MINUS &kp UP   &trans    &trans &trans
@@ -78,7 +195,7 @@
         };
 
         raise_layer {
-            label = "symbols";
+            label = "$!?";
             bindings = <
                 &trans &kp EXCL &kp AT &kp HASH &kp DLLR &kp PRCNT      &kp CARET &kp AMPS  &kp KP_MULTIPLY &kp LPAR &kp RPAR &trans
                 &trans &trans  &trans &kp SPACE &kp LGUI &trans     &trans    &mt MEH   &trans      &trans   &trans   &trans
@@ -88,12 +205,22 @@
         };
 
         tri_layer {
-            label = "system";
+            label = "SYS";
             bindings = <
-                &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4     &soft_off      &trans  &trans  &trans &trans  &trans
-                &trans     &trans       &trans       &trans       &kp LGUI    &kp BC       &kp FW       &kp TAB &trans &kp ACT &kp IMP &trans
-                &trans  &trans       &trans       &caps_word   &trans       &trans       &trans      &trans  &trans  &trans &trans  &trans
+                &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4     &trans      &cloneUp  &trans  &trans &trans  &trans
+                &trans     &trans       &trans       &cloneLeft       &kp LGUI    &kp BC       &kp FW       &kp TAB &cloneRight &kp ACT &kp IMP &trans
+                &trans  &trans       &trans       &caps_word   &trans       &trans       &trans      &cloneDown  &trans  &trans &trans  &trans
                                      &trans       &trans       &trans       &trans      &trans  &trans
+            >;
+        };
+
+        macro_layer {
+            label = "MCR";
+            bindings = <
+                &trans &trans &trans &trans &rename &trans      &trans &trans  &inl &trans &param &trans
+                &trans &trans  &signature &trans &field &trans     &trans    &trans   &trans      &trans   &trans   &trans
+                &trans &trans   &trans &constant   &trans   &trans     &trans    &method    &trans      &trans   &trans   &trans
+                               &trans   &trans   &trans     &trans    &trans    &trans
             >;
         };
     };
