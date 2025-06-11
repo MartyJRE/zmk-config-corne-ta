@@ -27,7 +27,7 @@
 
 &mt {
     // sane defaults
-    tapping-term-ms = <175>;
+    tapping-term-ms = <250>;
     flavor = "tap-preferred";
 };
 
