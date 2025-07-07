@@ -3,10 +3,15 @@
 #include <dt-bindings/zmk/bt.h>
 
 #define BASE 0 // default_layer index
+#define BASE_TEXT "ABC"
 #define NUMBERS 1 // lower_layer index
+#define NUMBERS_TEXT "123"
 #define SYMBOLS 2 // raise_layer index
+#define SYMBOLS_TEXT "$!?"
 #define SYSTEM 3 // tri_layer index
+#define SYSTEM_TEXT "SYS"
 #define MACROS 4 // macro_layer index
+#define MACROS_TEXT "MCR"
 
 // Meh = Ctrl + Shift + Alt
 #define MEH LA(LC(LSHIFT))
@@ -171,7 +176,7 @@
         compatible = "zmk,keymap";
 
         default_layer {
-            label = "ABC";
+            label = BASE_TEXT;
             bindings = <
                 &kp DEL       &mt RG(Q) Q &mt RG(W) W &kp E       &mt RG(R) R &mt RG(T) T      &lt MACROS Y     &kp U     &kp I      &kp O   &kp P         &kp BSLH
                 &mt LCTRL ESC &mt RG(A) A &mt RG(S) S &mt LBKT D  &mt LPAR F  &mt LBRC G       &mt RBRC H    &mt RPAR J    &mt RBKT K &kp L   &kp SEMI      &kp SQT
@@ -181,7 +186,7 @@
         };
 
         lower_layer {
-            label = "123";
+            label = NUMBERS_TEXT;
             bindings = <
                 &trans &kp N1 &kp N2 &kp N3    &kp N4    &kp N5         &kp N6 &kp N7    &kp N8   &kp N9    &kp N0 &trans
                 &trans &trans &trans &kp GRAVE &kp EQUAL &trans         &trans &kp MINUS &kp UP   &trans    &trans &trans
@@ -191,7 +196,7 @@
         };
 
         raise_layer {
-            label = "$!?";
+            label = SYMBOLS_TEXT;
             bindings = <
                 &trans &kp EXCL &kp AT &kp HASH &kp DLLR &kp PRCNT      &kp CARET &kp AMPS  &kp KP_MULTIPLY &kp LPAR &kp RPAR &trans
                 &trans &trans  &trans &kp SPACE &kp LGUI &trans     &trans    &mt MEH   &trans      &trans   &trans   &trans
@@ -201,7 +206,7 @@
         };
 
         tri_layer {
-            label = "SYS";
+            label = SYSTEM_TEXT;
             bindings = <
                 &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4     &trans      &cloneUp  &trans  &trans &trans  &trans
                 &trans     &trans       &trans       &cloneLeft       &kp LGUI    &kp BC       &kp FW       &kp TAB &cloneRight &kp ACT &kp IMP &trans
@@ -211,7 +216,7 @@
         };
 
         macro_layer {
-            label = "MCR";
+            label = MACROS_TEXT;
             bindings = <
                 &trans &trans &trans &trans &rename &trans      &trans &trans  &inl &trans &param &trans
                 &trans &trans  &signature &trans &field &trans     &trans    &trans   &trans      &trans   &trans   &trans
