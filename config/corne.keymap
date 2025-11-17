@@ -201,7 +201,7 @@
         // Escape - J+K (home row, vim-style)
         combo_esc {
             timeout-ms = <30>;
-            key-positions = <20 21>; // J K
+            key-positions = <19 20>; // J K
             bindings = <&kp ESC>;
             layers = <BASE>;
         };
