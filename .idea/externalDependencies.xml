@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ExternalDependencies">
+    <plugin id="NodeJS" />
+    <plugin id="com.intellij.ml.llm" />
+    <plugin id="com.intellij.settingsSync" />
+    <plugin id="com.markskelton.one-dark-theme" />
+    <plugin id="org.intellij.plugins.hcl" />
+    <plugin id="org.jetbrains.junie" />
+  </component>
+</project>

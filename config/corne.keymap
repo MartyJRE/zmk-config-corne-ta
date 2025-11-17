@@ -1,6 +1,14 @@
+// ============================================================================
+// ZMK Keyboard Configuration - Corne
+// ============================================================================
+
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
+
+// ============================================================================
+// Layer Definitions
+// ============================================================================
 
 #define BASE 0 // default_layer index
 #define BASE_TEXT "ABC"
@@ -13,8 +21,10 @@
 #define MACROS 4 // macro_layer index
 #define MACROS_TEXT "MCR"
 
-// Meh = Ctrl + Shift + Alt
-#define MEH LA(LC(LSHIFT))
+// ============================================================================
+// Custom Key Definitions
+// ============================================================================
+
 // Import = Alt + Shift + Enter
 #define IMP LA(LS(ENTER))
 // Action = Alt + Enter
@@ -24,9 +34,12 @@
 // Forward = Alt + Command + ->
 #define FW LA(LG(RIGHT))
 
+// ============================================================================
+// Behavior Configuration
+// ============================================================================
 
 &caps_word {
-    // when using caps word, allow for undescore and minus as they are commonly used for constants in programming languages
+    // when using caps word, allow for underscore and minus as they are commonly used for constants in programming languages
     continue-list = <DELETE BACKSPACE UNDERSCORE LEFT RIGHT LCTRL RCTRL LGUI RGUI>;
 };
 
@@ -34,137 +47,196 @@
     // sane defaults
     tapping-term-ms = <250>;
     flavor = "tap-preferred";
+    require-prior-idle-ms = <100>;
 };
 
 / {
+    // ============================================================================
+    // Macros
+    // ============================================================================
+    // Pattern for refactor macros: Press Meh (Ctrl+Alt+Shift) + R, wait, then tap specific letter
+    // This matches common IDE refactoring shortcuts
+
     macros {
         rename: rename {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings
-                = <&macro_press &kp LCTRL &kp LALT &kp LSHIFT>
-                , <&macro_tap &kp R>
-                , <&macro_release &kp LCTRL &kp LALT &kp LSHIFT>
-                , <&macro_wait_time 100>
-                , <&macro_tap &kp R>
-                ;
+            = <&macro_press &kp LCTRL &kp LALT &kp LSHIFT>
+            , <&macro_tap &kp R>
+            , <&macro_release &kp LCTRL &kp LALT &kp LSHIFT>
+            , <&macro_wait_time 100>
+            , <&macro_tap &kp R>
+            ;
         };
+
         signature: signature {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings
-                = <&macro_press &kp LCTRL &kp LALT &kp LSHIFT>
-                , <&macro_tap &kp C>
-                , <&macro_release &kp LCTRL &kp LALT &kp LSHIFT>
-                , <&macro_wait_time 100>
-                , <&macro_tap &kp S>
-                ;
+            = <&macro_press &kp LCTRL &kp LALT &kp LSHIFT>
+            , <&macro_tap &kp C>
+            , <&macro_release &kp LCTRL &kp LALT &kp LSHIFT>
+            , <&macro_wait_time 100>
+            , <&macro_tap &kp S>
+            ;
         };
+
         constant: constant {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings
-                = <&macro_press &kp LCTRL &kp LALT &kp LSHIFT>
-                , <&macro_tap &kp R>
-                , <&macro_release &kp LCTRL &kp LALT &kp LSHIFT>
-                , <&macro_wait_time 100>
-                , <&macro_tap &kp C>
-                ;
+            = <&macro_press &kp LCTRL &kp LALT &kp LSHIFT>
+            , <&macro_tap &kp R>
+            , <&macro_release &kp LCTRL &kp LALT &kp LSHIFT>
+            , <&macro_wait_time 100>
+            , <&macro_tap &kp C>
+            ;
         };
+
         field: field {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings
-                = <&macro_press &kp LCTRL &kp LALT &kp LSHIFT>
-                , <&macro_tap &kp R>
-                , <&macro_release &kp LCTRL &kp LALT &kp LSHIFT>
-                , <&macro_wait_time 100>
-                , <&macro_tap &kp F>
-                ;
+            = <&macro_press &kp LCTRL &kp LALT &kp LSHIFT>
+            , <&macro_tap &kp R>
+            , <&macro_release &kp LCTRL &kp LALT &kp LSHIFT>
+            , <&macro_wait_time 100>
+            , <&macro_tap &kp F>
+            ;
         };
+
         param: param {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings
-                = <&macro_press &kp LCTRL &kp LALT &kp LSHIFT>
-                , <&macro_tap &kp R>
-                , <&macro_release &kp LCTRL &kp LALT &kp LSHIFT>
-                , <&macro_wait_time 100>
-                , <&macro_tap &kp P>
-                ;
+            = <&macro_press &kp LCTRL &kp LALT &kp LSHIFT>
+            , <&macro_tap &kp R>
+            , <&macro_release &kp LCTRL &kp LALT &kp LSHIFT>
+            , <&macro_wait_time 100>
+            , <&macro_tap &kp P>
+            ;
         };
+
         method: method {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings
-                = <&macro_press &kp LCTRL &kp LALT &kp LSHIFT>
-                , <&macro_tap &kp R>
-                , <&macro_release &kp LCTRL &kp LALT &kp LSHIFT>
-                , <&macro_wait_time 100>
-                , <&macro_tap &kp M>
-                ;
+            = <&macro_press &kp LCTRL &kp LALT &kp LSHIFT>
+            , <&macro_tap &kp R>
+            , <&macro_release &kp LCTRL &kp LALT &kp LSHIFT>
+            , <&macro_wait_time 100>
+            , <&macro_tap &kp M>
+            ;
         };
+
         inl: inl {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings
-                = <&macro_press &kp LGUI &kp LALT>
-                , <&macro_tap &kp N>
-                , <&macro_release &kp LGUI &kp LALT>
-                ;
+            = <&macro_press &kp LGUI &kp LALT>
+            , <&macro_tap &kp N>
+            , <&macro_release &kp LGUI &kp LALT>
+            ;
         };
+
         cloneUp: cloneUp {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings
-                = <&macro_press &kp LCTRL &kp LALT &kp LSHIFT>
-                , <&macro_tap &kp UP>
-                , <&macro_release &kp LCTRL &kp LALT &kp LSHIFT>
-                ;
+            = <&macro_press &kp LCTRL &kp LALT &kp LSHIFT>
+            , <&macro_tap &kp UP>
+            , <&macro_release &kp LCTRL &kp LALT &kp LSHIFT>
+            ;
         };
+
         cloneDown: cloneDown {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings
-                = <&macro_press &kp LCTRL &kp LALT &kp LSHIFT>
-                , <&macro_tap &kp DOWN>
-                , <&macro_release &kp LCTRL &kp LALT &kp LSHIFT>
-                ;
+            = <&macro_press &kp LCTRL &kp LALT &kp LSHIFT>
+            , <&macro_tap &kp DOWN>
+            , <&macro_release &kp LCTRL &kp LALT &kp LSHIFT>
+            ;
         };
+
         cloneLeft: cloneLeft {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings
-                = <&macro_press &kp LCTRL &kp LALT &kp LSHIFT>
-                , <&macro_tap &kp LEFT>
-                , <&macro_release &kp LCTRL &kp LALT &kp LSHIFT>
-                ;
+            = <&macro_press &kp LCTRL &kp LALT &kp LSHIFT>
+            , <&macro_tap &kp LEFT>
+            , <&macro_release &kp LCTRL &kp LALT &kp LSHIFT>
+            ;
         };
+
         cloneRight: cloneRight {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings
-                = <&macro_press &kp LCTRL &kp LALT &kp LSHIFT>
-                , <&macro_tap &kp RIGHT>
-                , <&macro_release &kp LCTRL &kp LALT &kp LSHIFT>
-                ;
+            = <&macro_press &kp LCTRL &kp LALT &kp LSHIFT>
+            , <&macro_tap &kp RIGHT>
+            , <&macro_release &kp LCTRL &kp LALT &kp LSHIFT>
+            ;
         };
     };
 };
 
-// Key index reference:
-
+// ============================================================================
+// Key Index Reference
+// ============================================================================
 // 00 01 02 03 04 05 | 06 07 08 09 10 11
 // 12 13 14 15 16 17 | 18 19 20 21 22 23
 // 24 25 26 27 28 29 | 30 31 32 33 34 35
 //          36 37 38 | 39 40 41
 
-#define LEFT_MOD 36 // left thumb layer modifier key index
-#define RIGHT_MOD 41 // right thumb layer modifier key index
-
 / {
+    // ============================================================================
+    // Combos
+    // ============================================================================
+
+    combos {
+        compatible = "zmk,combos";
+
+        // Escape - J+K (home row, vim-style)
+        combo_esc {
+            timeout-ms = <30>;
+            key-positions = <20 21>; // J K
+            bindings = <&kp ESC>;
+            layers = <BASE>;
+        };
+
+        // Caps Word - F+J (home row inner fingers)
+        combo_caps_word {
+            timeout-ms = <50>;
+            key-positions = <16 19>; // F J
+            bindings = <&caps_word>;
+        };
+
+        // Delete - I+O (forward delete)
+        combo_del {
+            timeout-ms = <30>;
+            key-positions = <08 09>; // I O
+            bindings = <&kp DEL>;
+            layers = <BASE>;
+        };
+
+        // Underscore - C+V (common in variable names)
+        combo_under {
+            timeout-ms = <30>;
+            key-positions = <27 28>; // C V
+            bindings = <&kp UNDER>;
+            layers = <BASE>;
+        };
+    };
+
+    // ============================================================================
+    // Conditional Layers
+    // ============================================================================
+
     conditional_layers {
         compatible = "zmk,conditional-layers";
+
         tri_layer {
             // Switch to system layer if both layer switch keys are pressed at the same time
             if-layers = <NUMBERS SYMBOLS>;
@@ -172,57 +244,116 @@
         };
     };
 
+    // ============================================================================
+    // Keymap
+    // ============================================================================
+
     keymap {
         compatible = "zmk,keymap";
 
         default_layer {
             label = BASE_TEXT;
             bindings = <
-                &kp DEL       &mt RG(Q) Q &mt RG(W) W &kp E       &mt RG(R) R &mt RG(T) T      &lt MACROS Y     &kp U     &kp I      &kp O   &kp P         &kp BSLH
-                &mt LCTRL ESC &mt RG(A) A &mt RG(S) S &mt LBKT D  &mt LPAR F  &mt LBRC G       &mt RBRC H    &mt RPAR J    &mt RBKT K &kp L   &kp SEMI      &kp SQT
-                &kp LSHFT     &mt RG(Z) Z &mt RG(X) X &mt RG(C) C &mt RG(V) V &mt RG(B) B      &mt LGUI N    &mt LG(M) M   &kp COMMA  &kp DOT &mt LG(FSLH) FSLH &kp RCTRL
-                                      &mo NUMBERS &mt RGUI SPACE  &kp BSPC     &mt RGUI TAB  &mt RALT RET  &mo SYMBOLS
-            >;
+                           // @formatter:off
+            // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
+            // │  DEL        │  Q          │  W          │  E          │  R          │  T          │   │  Y / MACROS │  U          │  I          │  O          │  P          │  \          │
+                &kp DEL        &mt RG(Q) Q  &mt RG(W) W  &kp E         &mt RG(R) R     &mt RG(T) T        &lt MACROS Y  &kp U         &kp I         &kp O    &kp P              &kp BSLH
+            // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+            // │  ESC / CTRL │  A / Cmd+A  │  S / Cmd+S  │  D / [      │  F / (      │  G / {      │   │  H / }      │  J / )      │  K / ]      │  L          │  ;          │  '          │
+                &mt LCTRL ESC  &mt RG(A) A  &mt RG(S) S  &mt LBKT D    &mt LPAR F      &mt LBRC G         &mt RBRC H    &mt RPAR J    &mt RBKT K    &kp L    &kp SEMI           &kp SQT
+            // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+            // │  SHIFT      │  Z / Cmd+Z  │  X / Cmd+X  │  C / Cmd+C  │  V / Cmd+V  │  B / Cmd+B  │   │  N / GUI    │  M          │  ,          │  .          │  / / Cmd+/  │  CTRL       │
+                &kp LSHFT      &mt RG(Z) Z  &mt RG(X) X  &mt RG(C) C   &mt RG(V) V     &mt RG(B) B        &mt LGUI N    &kp M         &kp COMMA     &kp DOT  &mt LG(FSLH) FSLH  &kp RCTRL
+            // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
+            //                                           │  NUMBERS    │  SPACE/GUI  │  BSPC       │   │  TAB / GUI  │  ENTER/ALT  │  SYMBOLS    │
+                                                         &mo NUMBERS   &mt RGUI SPACE  &kp BSPC           &mt RGUI TAB  &mt RALT RET  &mo SYMBOLS
+            //                                           ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
+                           // @formatter:on
+                       >;
         };
 
         lower_layer {
             label = NUMBERS_TEXT;
             bindings = <
-                &trans &kp N1 &kp N2 &kp N3    &kp N4    &kp N5         &kp N6 &kp N7    &kp N8   &kp N9    &kp N0 &trans
-                &trans &trans &trans &kp GRAVE &kp EQUAL &trans         &trans &kp MINUS &kp UP   &trans    &trans &trans
-                &trans &trans &trans &kp LCTRL &kp LALT  &kp LA(LG(B))   &trans &kp LEFT  &kp DOWN &kp RIGHT &trans &trans
-                             &trans    &trans    &trans         &trans &trans    &trans
-            >;
+                           // @formatter:off
+            // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
+            // │             │  1          │  2          │  3          │  4          │  5          │   │  6          │  7          │  8          │  9          │  0          │             │
+                &trans         &kp N1       &kp N2       &kp N3        &kp N4        &kp N5             &kp N6        &kp N7        &kp N8        &kp N9        &kp N0        &trans
+            // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+            // │             │             │             │  `          │  =          │             │   │             │  -          │  ↑          │             │             │             │
+                &trans         &trans       &trans       &kp GRAVE     &kp EQUAL     &trans             &trans        &kp MINUS     &kp UP        &trans        &trans        &trans
+            // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+            // │             │             │             │  CTRL       │  ALT        │  Cmd+Opt+B  │   │             │  ←          │  ↓          │  →          │             │             │
+                &trans         &trans       &trans       &kp LCTRL     &kp LALT      &kp LA(LG(B))      &trans        &kp LEFT      &kp DOWN      &kp RIGHT     &trans        &trans
+            // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
+            //                                           │             │             │             │   │             │             │             │
+                                                         &trans        &trans        &trans             &trans        &trans        &trans
+            //                                           ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
+                           // @formatter:on
+                       >;
         };
 
         raise_layer {
             label = SYMBOLS_TEXT;
             bindings = <
-                &trans &kp EXCL &kp AT &kp HASH &kp DLLR &kp PRCNT      &kp CARET &kp AMPS  &kp KP_MULTIPLY &kp LPAR &kp RPAR &trans
-                &trans &trans  &trans &kp SPACE &kp LGUI &trans     &trans    &mt MEH   &trans      &trans   &trans   &trans
-                &trans &trans   &trans &trans   &trans   &trans     &trans    &trans    &trans      &trans   &trans   &trans
-                               &trans   &trans   &trans     &trans    &trans    &trans
-            >;
+                           // @formatter:off
+            // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
+            // │             │  !          │  @          │  #          │  $          │  %          │   │  ^          │  &          │  *          │  (          │  )          │             │
+                &trans         &kp EXCL     &kp AT       &kp HASH      &kp DLLR      &kp PRCNT          &kp CARET     &kp AMPS      &kp KP_MULTIPLY &kp LPAR    &kp RPAR      &trans
+            // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+            // │             │             │             │  SPACE      │  GUI        │             │   │             │             │             │             │             │             │
+                &trans         &trans       &trans       &kp SPACE     &kp LGUI      &trans             &trans        &trans        &trans        &trans        &trans        &trans
+            // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+            // │             │             │             │             │             │             │   │             │             │             │             │             │             │
+                &trans         &trans       &trans       &trans        &trans        &trans             &trans        &trans        &trans        &trans        &trans        &trans
+            // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
+            //                                           │             │             │             │   │             │             │             │
+                                                         &trans        &trans        &trans             &trans        &trans        &trans
+            //                                           ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
+                           // @formatter:on
+                       >;
         };
 
         tri_layer {
             label = SYSTEM_TEXT;
             bindings = <
-                &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4     &trans      &cloneUp  &trans  &trans &trans  &trans
-                &trans     &trans       &trans       &cloneLeft       &kp LGUI    &kp BC       &kp FW       &kp TAB &cloneRight &kp ACT &kp IMP &trans
-                &trans  &trans       &trans       &caps_word   &trans       &trans       &trans      &cloneDown  &trans  &trans &trans  &trans
-                                     &trans       &trans       &trans       &trans      &trans  &trans
-            >;
+                           // @formatter:off
+            // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
+            // │  BT CLR     │  BT 0       │  BT 1       │  BT 2       │  BT 3       │  BT 4       │   │             │  Clone Up   │             │             │             │             │
+                &bt BT_CLR     &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4       &trans        &cloneUp      &trans        &trans        &trans        &trans
+            // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+            // │             │             │             │  Clone Left │  GUI        │  Back       │   │  Forward    │  TAB        │  Clone Rght │  Action     │  Import     │             │
+                &trans         &trans       &trans       &cloneLeft    &kp LGUI      &kp BC             &kp FW        &kp TAB       &cloneRight   &kp ACT       &kp IMP       &trans
+            // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+            // │             │             │             │             │             │             │   │             │  Clone Down │             │             │             │             │
+                &trans         &trans       &trans       &trans        &trans        &trans             &trans        &cloneDown    &trans        &trans        &trans        &trans
+            // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
+            //                                           │             │             │             │   │             │             │             │
+                                                         &trans        &trans        &trans             &trans        &trans        &trans
+            //                                           ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
+                           // @formatter:on
+                       >;
         };
 
         macro_layer {
             label = MACROS_TEXT;
             bindings = <
-                &trans &trans &trans &trans &rename &trans      &trans &trans  &inl &trans &param &trans
-                &trans &trans  &signature &trans &field &trans     &trans    &trans   &trans      &trans   &trans   &trans
-                &trans &trans   &trans &constant   &trans   &trans     &trans    &method    &trans      &trans   &trans   &trans
-                               &trans   &trans   &trans     &trans    &trans    &trans
-            >;
+                           // @formatter:off
+            // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
+            // │             │             │             │             │  Rename     │             │   │             │             │  Inline     │             │  Param      │             │
+                &trans         &trans       &trans       &trans        &rename       &trans             &trans        &trans        &inl          &trans        &param        &trans
+            // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+            // │             │             │  Signature  │             │  Field      │             │   │             │             │             │             │             │             │
+                &trans         &trans       &signature   &trans        &field        &trans             &trans        &trans        &trans        &trans        &trans        &trans
+            // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+            // │             │             │             │  Constant   │             │             │   │             │  Method     │             │             │             │             │
+                &trans         &trans       &trans       &constant     &trans        &trans             &trans        &method       &trans        &trans        &trans        &trans
+            // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
+            //                                           │             │             │             │   │             │             │             │
+                                                         &trans        &trans        &trans             &trans        &trans        &trans
+            //                                           ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
+                           // @formatter:on
+                       >;
         };
     };
 };

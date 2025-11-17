@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="BackendCodeEditorMiscSettings">
+    <option name="/Default/Environment/Hierarchy/GeneratedFilesCacheKey/Timestamp/@EntryValue" value="3" type="long" />
+    <option name="/Default/Housekeeping/FeatureSuggestion/FeatureSuggestionManager/DisabledSuggesters/=SwitchToGoToActionSuggester/@EntryIndexedValue" value="true" type="bool" />
+    <option name="/Default/Housekeeping/GlobalSettingsUpgraded/IsUpgraded/@EntryValue" value="true" type="bool" />
+    <option name="/Default/Housekeeping/OptionsDialog/SelectedPageId/@EntryValue" value="CppFormatterOtherPage" type="string" />
+    <option name="/Default/RiderDebugger/RiderRestoreDecompile/RestoreDecompileSetting/@EntryValue" value="false" type="bool" />
+  </component>
+  <component name="CMakePresetLoader">{
+  &quot;useNewFormat&quot;: true
+}</component>
+  <component name="CMakeProjectFlavorService">
+    <option name="flavorId" value="CMakePlainProjectFlavor" />
+  </component>
+  <component name="CMakeReloadState">
+    <option name="reloaded" value="true" />
+  </component>
+  <component name="CMakeRunConfigurationManager">
+    <generated>
+      <config projectName="zmk-config-corne" targetName="zmk-config-dummy" />
+    </generated>
+  </component>
+  <component name="CMakeSettings" AUTO_RELOAD="true">
+    <configurations>
+      <configuration PROFILE_NAME="Debug" ENABLED="true" CONFIG_NAME="Debug" />
+    </configurations>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="b084df71-29bf-4e58-8499-4ccf3d3c6942" name="Changes" comment="Refactor keymap layer labels to use defined constants for consistency and maintainability">
+      <change afterPath="$PROJECT_DIR$/zmk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="CoverageOptionsProvider">
+    <option name="myAddOrReplace" value="0" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
+  <component name="FormatOnSaveOptions">
+    <option name="myRunOnSave" value="true" />
+  </component>
+  <component name="Git.Settings">
+    <option name="PUSH_AUTO_UPDATE" value="true" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;MartyJRE&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;git@github.com:MartyJRE/zmk-config-corne-ta.git&quot;,
+    &quot;accountId&quot;: &quot;c6e7f04b-f1c9-4088-825b-8a440f194a19&quot;
+  }
+}</component>
+  <component name="OptimizeOnSaveOptions">
+    <option name="myRunOnSave" value="true" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
+  <component name="ProjectId" id="2yK0526SQuL5XWYoVu0Ujri5IAV" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+    <ConfirmationsSetting value="2" id="Remove" />
+  </component>
+  <component name="ProjectStatusUIService">{
+  &quot;uiKindId&quot;: &quot;Widget&quot;
+}</component>
+  <component name="ProjectViewState">
+    <option name="autoscrollToSource" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="openDirectoriesWithSingleClick" value="true" />
+    <option name="showLibraryContents" value="true" />
+    <option name="showVisibilityIcons" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "CMake Debug.zmk-config-corne.executor": "Debug",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.RadMigrateCodeStyle": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.readMode.enableVisualFormatting": "true",
+    "RunOnceActivity.west.config.association.type.startup.service": "true",
+    "RunOnceActivity.west.python.interpreter.configured": "true",
+    "SHFMT.PATH": "/Users/martinprazak/Library/Application Support/JetBrains/WebStorm2025.1/plugins/Shell Script/shfmt",
+    "cf.first.check.clang-format": "false",
+    "cidr.known.project.marker": "true",
+    "git-widget-placeholder": "master",
+    "javascript.nodejs.core.library.configured.version": "20.19.4",
+    "javascript.nodejs.core.library.typings.version": "20.19.25",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.standard": "",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "actions.on.save",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RunManager" selected="CMake Debug.zmk-config-corne">
+    <configuration name="zmk-config-corne" type="CMakeListConfigurationType" factoryName="CMakeListConfigurationFactory" temporary="true">
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="zmk-config-dummy" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="zmk-config-corne" TARGET_NAME="zmk-config-dummy" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="West" type="WestRunConfiguration" factoryName="WestRunConfiguration" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="zmk-config-corne-ta" TARGET_NAME="West" CONFIG_NAME="West">
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="CMake Application.zmk-config-dummy" />
+      <item itemvalue="CMake Debug.zmk-config-corne" />
+      <item itemvalue="Zephyr West.West" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="CMake Debug.zmk-config-corne" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration>$USER_HOME$/.subversion</configuration>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b084df71-29bf-4e58-8499-4ccf3d3c6942" name="Changes" comment="" />
+      <created>1747693098432</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1747693098432</updated>
+      <workItem from="1747693101043" duration="1257000" />
+      <workItem from="1747695055759" duration="245000" />
+      <workItem from="1749567771998" duration="3185000" />
+      <workItem from="1749631086640" duration="864000" />
+      <workItem from="1751896105672" duration="856000" />
+      <workItem from="1751896977943" duration="79000" />
+      <workItem from="1751897099557" duration="170000" />
+      <workItem from="1763344999718" duration="649000" />
+      <workItem from="1763345661216" duration="375000" />
+      <workItem from="1763346047308" duration="3806000" />
+    </task>
+    <task id="LOCAL-00001" summary="Add macro layer with predefined macros and update keymap labels  &#10;&#10;- Introduced new `macro_layer` definition and associated macros such as `rename`, `signature`, `field`, etc.&#10;- Updated existing layers' labels to concise names (&quot;ABC&quot;, &quot;123&quot;, &quot;$!?&quot;, &quot;SYS&quot;).&#10;- Added `.idea` to `.gitignore`.&#10;- Removed unused build configuration for `settings_reset`.">
+      <option name="closed" value="true" />
+      <created>1749569492315</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1749569492316</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Adjust tapping term and remove unused `soft_off` hold-time configuration">
+      <option name="closed" value="true" />
+      <created>1749569556479</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1749569556479</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Adjust tapping term and set keyboard name in configuration">
+      <option name="closed" value="true" />
+      <created>1749631331961</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1749631331961</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Refactor keymap layer labels to use defined constants for consistency and maintainability">
+      <option name="closed" value="true" />
+      <created>1751896245057</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1751896245057</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
+    <option name="branchNameFormat" value="feat/${id}/${summary}" />
+    <servers>
+      <JIRA shared="true" url="https://lutherx.atlassian.net">
+        <option name="jiraVersion" value="1001.0.0-SNAPSHOT" />
+        <option name="useBearerTokenAuthentication" value="true" />
+        <username>martin.prazak@lutherx.com</username>
+      </JIRA>
+    </servers>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VCPKGProject">
+    <isAutomaticCheckingOnLaunch value="false" />
+    <isAutomaticFoundErrors value="true" />
+    <isAutomaticReloadCMake value="true" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="OPEN_GENERIC_TABS">
+      <map>
+        <entry key="08f42163-22c9-40bc-9e58-56c9cd7b00c2" value="TOOL_WINDOW" />
+      </map>
+    </option>
+    <option name="TAB_STATES">
+      <map>
+        <entry key="08f42163-22c9-40bc-9e58-56c9cd7b00c2">
+          <value>
+            <State />
+          </value>
+        </entry>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Add macro layer with predefined macros and update keymap labels  &#10;&#10;- Introduced new `macro_layer` definition and associated macros such as `rename`, `signature`, `field`, etc.&#10;- Updated existing layers' labels to concise names (&quot;ABC&quot;, &quot;123&quot;, &quot;$!?&quot;, &quot;SYS&quot;).&#10;- Added `.idea` to `.gitignore`.&#10;- Removed unused build configuration for `settings_reset`." />
+    <MESSAGE value="Adjust tapping term and remove unused `soft_off` hold-time configuration" />
+    <MESSAGE value="Adjust tapping term and set keyboard name in configuration" />
+    <MESSAGE value="Refactor keymap layer labels to use defined constants for consistency and maintainability" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactor keymap layer labels to use defined constants for consistency and maintainability" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>

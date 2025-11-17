@@ -1,1 +1,6 @@
-.idea
+# Build artifacts
+cmake-build-*
+build/
+
+# Mac
+.DS_Store
