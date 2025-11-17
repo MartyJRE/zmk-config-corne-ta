@@ -216,7 +216,7 @@
         // Delete - I+O (forward delete)
         combo_del {
             timeout-ms = <30>;
-            key-positions = <08 09>; // I O
+            key-positions = <8 9>; // I O
             bindings = <&kp DEL>;
             layers = <BASE>;
         };
