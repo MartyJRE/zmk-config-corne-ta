@@ -262,8 +262,8 @@
             // │  ESC / CTRL │  A / Cmd+A  │  S / Cmd+S  │  D / [      │  F / (      │  G / {      │   │  H / }      │  J / )      │  K / ]      │  L          │  ;          │  '          │
                 &mt LCTRL ESC  &mt RG(A) A  &mt RG(S) S  &mt LBKT D    &mt LPAR F      &mt LBRC G         &mt RBRC H    &mt RPAR J    &mt RBKT K    &kp L    &kp SEMI           &kp SQT
             // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-            // │  SHIFT      │  Z / Cmd+Z  │  X / Cmd+X  │  C / Cmd+C  │  V / Cmd+V  │  B / Cmd+B  │   │  N / GUI    │  M          │  ,          │  .          │  / / Cmd+/  │  CTRL       │
-                &kp LSHFT      &mt RG(Z) Z  &mt RG(X) X  &mt RG(C) C   &mt RG(V) V     &mt RG(B) B        &mt LGUI N    &kp M         &kp COMMA     &kp DOT  &mt LG(FSLH) FSLH  &kp RCTRL
+            // │  SHIFT      │  Z / Cmd+Z  │  X / Cmd+X  │  C / Cmd+C  │  V / Cmd+V  │  B / Cmd+B  │   │  N / GUI    │  M          │  ,          │  .          │  / / Cmd+/  │  SHIFT      │
+                &kp LSHFT      &mt RG(Z) Z  &mt RG(X) X  &mt RG(C) C   &mt RG(V) V     &mt RG(B) B        &mt LGUI N    &kp M         &kp COMMA     &kp DOT  &mt LG(FSLH) FSLH  &kp RSHFT
             // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
             //                                           │  NUMBERS    │  SPACE/GUI  │  BSPC       │   │  TAB / GUI  │  ENTER/ALT  │  SYMBOLS    │
                                                          &mo NUMBERS   &mt RGUI SPACE  &kp BSPC           &mt RGUI TAB  &mt RALT RET  &mo SYMBOLS
