@@ -1,0 +1,229 @@
+layout: {zmk_keyboard: corne}
+layers:
+  ABC:
+  - DEL
+  - {t: Q, h: Gui+Q}
+  - {t: W, h: Gui+W}
+  - E
+  - {t: R, h: Gui+R}
+  - {t: T, h: Gui+T}
+  - {t: Y, h: MACRO}
+  - U
+  - I
+  - O
+  - P
+  - \
+  - {t: ESC, h: LCTRL}
+  - {t: A, h: Gui+A}
+  - {t: S, h: Gui+S}
+  - {t: D, h: '['}
+  - {t: F, h: (}
+  - {t: G, h: '{'}
+  - {t: H, h: '}'}
+  - {t: J, h: )}
+  - {t: K, h: ']'}
+  - L
+  - ;
+  - ''''
+  - LSHFT
+  - {t: Z, h: Gui+Z}
+  - {t: X, h: Gui+X}
+  - {t: C, h: Gui+C}
+  - {t: V, h: Gui+V}
+  - {t: B, h: Gui+B}
+  - {t: N, h: LGUI}
+  - M
+  - ','
+  - .
+  - {t: /, h: Gui+/}
+  - RSHFT
+  - '123'
+  - {t: SPACE, h: RGUI}
+  - BSPC
+  - {t: TAB, h: RGUI}
+  - {t: RET, h: RALT}
+  - $!?
+  '123':
+  - {t: ▽, type: trans}
+  - '1'
+  - '2'
+  - '3'
+  - '4'
+  - '5'
+  - '6'
+  - '7'
+  - '8'
+  - '9'
+  - '0'
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - '`'
+  - '='
+  - PG UP
+  - PG DN
+  - '-'
+  - UP
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - LCTRL
+  - LALT
+  - Impl
+  - {t: ▽, type: trans}
+  - LEFT
+  - DOWN
+  - RIGHT
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {type: held}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - Sft+TAB
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  $!?:
+  - {t: ▽, type: trans}
+  - '!'
+  - '@'
+  - '#'
+  - $
+  - '%'
+  - ^
+  - '&'
+  - '*'
+  - (
+  - )
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - SPACE
+  - LGUI
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {type: held}
+  SYS:
+  - {t: BT clear, h: hold 1s}
+  - {t: BT, h: '0'}
+  - {t: BT, h: '1'}
+  - {t: BT, h: '2'}
+  - {t: BT, h: '3'}
+  - {t: BT, h: '4'}
+  - {t: ▽, type: trans}
+  - Clone ↑
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - Clone ←
+  - LGUI
+  - Back
+  - Forward
+  - TAB
+  - Clone →
+  - Action
+  - Import
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - Clone ↓
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {type: held}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {type: held}
+  MACRO:
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - Rename
+  - {t: ▽, type: trans}
+  - {type: held}
+  - {t: ▽, type: trans}
+  - Inline
+  - {t: ▽, type: trans}
+  - Param
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - Signature
+  - {t: ▽, type: trans}
+  - Field
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - Const
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - Method
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+combos:
+- p: [19, 20]
+  k: ESC
+  l: [ABC]
+- p: [16, 19]
+  k: Caps Word
+- p: [8, 9]
+  k: DEL
+  l: [ABC]
+- p: [27, 28]
+  k: _
+  l: [ABC]
