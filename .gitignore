@@ -11,3 +11,5 @@ build/
 
 # West
 .west/
+# Local ZMK checkout used only for CLion indexing (see CMakeLists.txt); CI uses config/west.yml
+zmk/
