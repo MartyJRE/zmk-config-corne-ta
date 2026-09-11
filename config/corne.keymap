@@ -19,7 +19,7 @@
 #define SYSTEM 3 // tri_layer index
 #define SYSTEM_TEXT "SYS"
 #define MACROS 4 // macro_layer index
-#define MACROS_TEXT "MCR"
+#define MACROS_TEXT "MACRO"
 
 // ============================================================================
 // Custom Key Definitions
@@ -48,6 +48,8 @@
     tapping-term-ms = <250>;
     flavor = "tap-preferred";
     require-prior-idle-ms = <100>;
+    // tap then hold the same key within this window repeats the tap (letter auto-repeat) instead of holding
+    quick-tap-ms = <175>;
 };
 
 / {
@@ -58,126 +60,43 @@
     // This matches common IDE refactoring shortcuts
 
     macros {
-        rename: rename {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
+        // Meh (Ctrl+Alt+Shift) + FIRST, wait, then tap SECOND. Matches IntelliJ's refactor chords,
+        // e.g. &meh_seq R F = Refactor > Introduce Field.
+        meh_seq: meh_seq {
+            compatible = "zmk,behavior-macro-two-param";
+            #binding-cells = <2>;
             bindings
             = <&macro_press &kp LCTRL &kp LALT &kp LSHIFT>
-            , <&macro_tap &kp R>
+            , <&macro_param_1to1>
+            , <&macro_tap &kp MACRO_PLACEHOLDER>
             , <&macro_release &kp LCTRL &kp LALT &kp LSHIFT>
             , <&macro_wait_time 100>
-            , <&macro_tap &kp R>
+            , <&macro_param_2to1>
+            , <&macro_tap &kp MACRO_PLACEHOLDER>
             ;
         };
 
-        signature: signature {
+        // Wrapper so a hold-tap can trigger the two-cell &bt BT_CLR
+        bt_clr_macro: bt_clr_macro {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings
-            = <&macro_press &kp LCTRL &kp LALT &kp LSHIFT>
-            , <&macro_tap &kp C>
-            , <&macro_release &kp LCTRL &kp LALT &kp LSHIFT>
-            , <&macro_wait_time 100>
-            , <&macro_tap &kp S>
-            ;
+            bindings = <&bt BT_CLR>;
         };
+    };
 
-        constant: constant {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings
-            = <&macro_press &kp LCTRL &kp LALT &kp LSHIFT>
-            , <&macro_tap &kp R>
-            , <&macro_release &kp LCTRL &kp LALT &kp LSHIFT>
-            , <&macro_wait_time 100>
-            , <&macro_tap &kp C>
-            ;
-        };
+    // ============================================================================
+    // Behaviors
+    // ============================================================================
 
-        field: field {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings
-            = <&macro_press &kp LCTRL &kp LALT &kp LSHIFT>
-            , <&macro_tap &kp R>
-            , <&macro_release &kp LCTRL &kp LALT &kp LSHIFT>
-            , <&macro_wait_time 100>
-            , <&macro_tap &kp F>
-            ;
-        };
-
-        param: param {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings
-            = <&macro_press &kp LCTRL &kp LALT &kp LSHIFT>
-            , <&macro_tap &kp R>
-            , <&macro_release &kp LCTRL &kp LALT &kp LSHIFT>
-            , <&macro_wait_time 100>
-            , <&macro_tap &kp P>
-            ;
-        };
-
-        method: method {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings
-            = <&macro_press &kp LCTRL &kp LALT &kp LSHIFT>
-            , <&macro_tap &kp R>
-            , <&macro_release &kp LCTRL &kp LALT &kp LSHIFT>
-            , <&macro_wait_time 100>
-            , <&macro_tap &kp M>
-            ;
-        };
-
-        inl: inl {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings
-            = <&macro_press &kp LGUI &kp LALT>
-            , <&macro_tap &kp N>
-            , <&macro_release &kp LGUI &kp LALT>
-            ;
-        };
-
-        cloneUp: cloneUp {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings
-            = <&macro_press &kp LCTRL &kp LALT &kp LSHIFT>
-            , <&macro_tap &kp UP>
-            , <&macro_release &kp LCTRL &kp LALT &kp LSHIFT>
-            ;
-        };
-
-        cloneDown: cloneDown {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings
-            = <&macro_press &kp LCTRL &kp LALT &kp LSHIFT>
-            , <&macro_tap &kp DOWN>
-            , <&macro_release &kp LCTRL &kp LALT &kp LSHIFT>
-            ;
-        };
-
-        cloneLeft: cloneLeft {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings
-            = <&macro_press &kp LCTRL &kp LALT &kp LSHIFT>
-            , <&macro_tap &kp LEFT>
-            , <&macro_release &kp LCTRL &kp LALT &kp LSHIFT>
-            ;
-        };
-
-        cloneRight: cloneRight {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings
-            = <&macro_press &kp LCTRL &kp LALT &kp LSHIFT>
-            , <&macro_tap &kp RIGHT>
-            , <&macro_release &kp LCTRL &kp LALT &kp LSHIFT>
-            ;
+    behaviors {
+        // Bluetooth clear only after holding for a full second; a tap does nothing.
+        bt_clr_hold: bt_clr_hold {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            tapping-term-ms = <1000>;
+            flavor = "hold-preferred";
+            bindings = <&bt_clr_macro>, <&none>;
+            display-name = "BT clear (hold)";
         };
     };
 };
@@ -200,6 +119,7 @@
 
         // Escape - J+K (home row, vim-style)
         combo_esc {
+            require-prior-idle-ms = <100>;
             timeout-ms = <30>;
             key-positions = <19 20>; // J K
             bindings = <&kp ESC>;
@@ -208,6 +128,7 @@
 
         // Caps Word - F+J (home row inner fingers)
         combo_caps_word {
+            require-prior-idle-ms = <100>;
             timeout-ms = <50>;
             key-positions = <16 19>; // F J
             bindings = <&caps_word>;
@@ -215,6 +136,7 @@
 
         // Delete - I+O (forward delete)
         combo_del {
+            require-prior-idle-ms = <100>;
             timeout-ms = <30>;
             key-positions = <8 9>; // I O
             bindings = <&kp DEL>;
@@ -223,6 +145,7 @@
 
         // Underscore - C+V (common in variable names)
         combo_under {
+            require-prior-idle-ms = <100>;
             timeout-ms = <30>;
             key-positions = <27 28>; // C V
             bindings = <&kp UNDER>;
@@ -287,7 +210,7 @@
                 &trans         &trans       &trans       &kp LCTRL     &kp LALT      &kp LA(LG(B))      &trans        &kp LEFT      &kp DOWN      &kp RIGHT     &trans        &trans
             // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
             //                                           │             │             │             │   │             │             │             │
-                                                         &trans        &trans        &trans             &trans        &trans        &trans
+                                                         &trans        &trans        &trans             &kp LS(TAB)   &trans        &trans
             //                                           ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
                            // @formatter:on
                        >;
@@ -299,7 +222,7 @@
                            // @formatter:off
             // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
             // │             │  !          │  @          │  #          │  $          │  %          │   │  ^          │  &          │  *          │  (          │  )          │             │
-                &trans         &kp EXCL     &kp AT       &kp HASH      &kp DLLR      &kp PRCNT          &kp CARET     &kp AMPS      &kp KP_MULTIPLY &kp LPAR    &kp RPAR      &trans
+                &trans         &kp EXCL     &kp AT       &kp HASH      &kp DLLR      &kp PRCNT          &kp CARET     &kp AMPS      &kp STAR      &kp LPAR    &kp RPAR      &trans
             // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
             // │             │             │             │  SPACE      │  GUI        │             │   │             │             │             │             │             │             │
                 &trans         &trans       &trans       &kp SPACE     &kp LGUI      &trans             &trans        &trans        &trans        &trans        &trans        &trans
@@ -320,13 +243,13 @@
                            // @formatter:off
             // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
             // │  BT CLR     │  BT 0       │  BT 1       │  BT 2       │  BT 3       │  BT 4       │   │             │  Clone Up   │             │             │             │             │
-                &bt BT_CLR     &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4       &trans        &cloneUp      &trans        &trans        &trans        &trans
+                &bt_clr_hold 0 0 &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4       &trans        &kp LC(LA(LS(UP)))  &trans        &trans        &trans        &trans
             // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
             // │             │             │             │  Clone Left │  GUI        │  Back       │   │  Forward    │  TAB        │  Clone Rght │  Action     │  Import     │             │
-                &trans         &trans       &trans       &cloneLeft    &kp LGUI      &kp BC             &kp FW        &kp TAB       &cloneRight   &kp ACT       &kp IMP       &trans
+                &trans         &trans       &trans       &kp LC(LA(LS(LEFT)))  &kp LGUI      &kp BC             &kp FW        &kp TAB       &kp LC(LA(LS(RIGHT)))  &kp ACT       &kp IMP       &trans
             // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
             // │             │             │             │             │             │             │   │             │  Clone Down │             │             │             │             │
-                &trans         &trans       &trans       &trans        &trans        &trans             &trans        &cloneDown    &trans        &trans        &trans        &trans
+                &trans         &trans       &trans       &trans        &trans        &trans             &trans        &kp LC(LA(LS(DOWN)))  &trans        &trans        &trans        &trans
             // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
             //                                           │             │             │             │   │             │             │             │
                                                          &trans        &trans        &trans             &trans        &trans        &trans
@@ -341,13 +264,13 @@
                            // @formatter:off
             // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
             // │             │             │             │             │  Rename     │             │   │             │             │  Inline     │             │  Param      │             │
-                &trans         &trans       &trans       &trans        &rename       &trans             &trans        &trans        &inl          &trans        &param        &trans
+                &trans         &trans       &trans       &trans        &meh_seq R R  &trans             &trans        &trans        &kp LG(LA(N)) &trans        &meh_seq R P  &trans
             // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
             // │             │             │  Signature  │             │  Field      │             │   │             │             │             │             │             │             │
-                &trans         &trans       &signature   &trans        &field        &trans             &trans        &trans        &trans        &trans        &trans        &trans
+                &trans         &trans       &meh_seq C S &trans        &meh_seq R F  &trans             &trans        &trans        &trans        &trans        &trans        &trans
             // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
             // │             │             │             │  Constant   │             │             │   │             │  Method     │             │             │             │             │
-                &trans         &trans       &trans       &constant     &trans        &trans             &trans        &method       &trans        &trans        &trans        &trans
+                &trans         &trans       &trans       &meh_seq R C  &trans        &trans             &trans        &meh_seq R M  &trans        &trans        &trans        &trans
             // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
             //                                           │             │             │             │   │             │             │             │
                                                          &trans        &trans        &trans             &trans        &trans        &trans
