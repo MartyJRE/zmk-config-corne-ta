@@ -68,25 +68,25 @@ text.footer {
 }
 
 /* styling for combo tap, and key non-tap label text */
-text.combo, text.hold, text.shifted, text.left, text.right, text.tl, text.tr, text.bl, text.br {
+text.combo, text.hold, text.shifted, text.left, text.right {
     font-size: 11px;
 }
 
-text.hold, text.bl, text.br {
+text.hold {
     text-anchor: middle;
     dominant-baseline: auto;
 }
 
-text.shifted, text.tl, text.tr {
+text.shifted {
     text-anchor: middle;
     dominant-baseline: hanging;
 }
 
-text.left, text.tl, text.bl {
+text.left {
     text-anchor: start;
 }
 
-text.right, text.tr, text.br {
+text.right {
     text-anchor: end;
 }
 
@@ -124,7 +124,32 @@ path.combo {
 }
 /* End Tabler Icons Cleanup */
 
-svg.keymap { font-family: Inter, -apple-system, Helvetica, sans-serif; }
+svg.keymap { background: #1b2238; font-family: Inter, -apple-system, Helvetica, sans-serif; }
+text.label { fill: #dfe6f5; font-weight: 600; stroke: none; }
+rect.key { fill: #5a6a9e; stroke: none; }
+rect.key.side { fill: #2f3b66; stroke: #151b30; stroke-width: 1; }
+text.key { fill: #bcd4f3; }
+text.key.hold { fill: #8ea6d3; }
+g.key.trans rect.key { fill: #4a5885; }
+g.key.trans rect.key.side { fill: #2a3459; }
+g.key.trans text.key { fill: #7688b5; }
+g.key.held rect.key { fill: #b7d1f1; }
+g.key.held text.key { fill: #1b2238; }
+g.keypos-0 rect.key, g.keypos-11 rect.key, g.keypos-12 rect.key, g.keypos-23 rect.key,
+g.keypos-24 rect.key, g.keypos-35 rect.key, g.keypos-36 rect.key, g.keypos-37 rect.key,
+g.keypos-38 rect.key, g.keypos-39 rect.key, g.keypos-40 rect.key, g.keypos-41 rect.key { fill: #8db3e2; }
+g.keypos-0 rect.key.side, g.keypos-11 rect.key.side, g.keypos-12 rect.key.side, g.keypos-23 rect.key.side,
+g.keypos-24 rect.key.side, g.keypos-35 rect.key.side, g.keypos-36 rect.key.side, g.keypos-37 rect.key.side,
+g.keypos-38 rect.key.side, g.keypos-39 rect.key.side, g.keypos-40 rect.key.side, g.keypos-41 rect.key.side { fill: #5b83b7; }
+g.keypos-0 text.key, g.keypos-11 text.key, g.keypos-12 text.key, g.keypos-23 text.key,
+g.keypos-24 text.key, g.keypos-35 text.key, g.keypos-36 text.key, g.keypos-37 text.key,
+g.keypos-38 text.key, g.keypos-39 text.key, g.keypos-40 text.key, g.keypos-41 text.key { fill: #16203a; }
+g.keypos-0.trans rect.key, g.keypos-11.trans rect.key, g.keypos-12.trans rect.key, g.keypos-23.trans rect.key,
+g.keypos-24.trans rect.key, g.keypos-35.trans rect.key, g.keypos-36.trans rect.key, g.keypos-37.trans rect.key,
+g.keypos-38.trans rect.key, g.keypos-39.trans rect.key, g.keypos-40.trans rect.key, g.keypos-41.trans rect.key { fill: #6d93c4; }
+rect.combo { fill: #dfe6f5; stroke: #8db3e2; }
+text.combo { fill: #16203a; }
+path.combo { stroke: #8db3e2; }
 </style>
 <g transform="translate(30, 0)" class="layer-ABC">
 <text x="0" y="28" class="label" id="ABC">ABC</text>
@@ -604,14 +629,6 @@ svg.keymap { font-family: Inter, -apple-system, Helvetica, sans-serif; }
 <rect rx="4" ry="4" x="-20" y="-24" width="40" height="40" class="key trans"/>
 <text x="0" y="-4" class="key trans tap">▽</text>
 </g>
-<g class="combo combopos-0">
-<path d="M420,91 l-149,0" class="combo"/>
-<path d="M420,91 l149,0" class="combo"/>
-<rect rx="6" ry="6" x="406" y="78" width="28" height="26" class="combo"/>
-<text x="420" y="91" class="combo tap">
-<tspan x="420" dy="-0.6em">Caps</tspan><tspan x="420" dy="1.2em">Word</tspan>
-</text>
-</g>
 </g>
 </g>
 <g transform="translate(30, 661)" class="layer-$!?">
@@ -826,14 +843,6 @@ svg.keymap { font-family: Inter, -apple-system, Helvetica, sans-serif; }
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key held side"/>
 <rect rx="4" ry="4" x="-20" y="-24" width="40" height="40" class="key held"/>
 </g>
-<g class="combo combopos-0">
-<path d="M420,91 l-149,0" class="combo"/>
-<path d="M420,91 l149,0" class="combo"/>
-<rect rx="6" ry="6" x="406" y="78" width="28" height="26" class="combo"/>
-<text x="420" y="91" class="combo tap">
-<tspan x="420" dy="-0.6em">Caps</tspan><tspan x="420" dy="1.2em">Word</tspan>
-</text>
-</g>
 </g>
 </g>
 <g transform="translate(30, 992)" class="layer-SYS">
@@ -843,7 +852,7 @@ svg.keymap { font-family: Inter, -apple-system, Helvetica, sans-serif; }
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key side"/>
 <rect rx="4" ry="4" x="-20" y="-24" width="40" height="40" class="key"/>
 <text x="0" y="-4" class="key tap">
-<tspan x="0" dy="-0.9em">BT</tspan><tspan x="0" dy="1.2em">clear</tspan>
+<tspan x="0" dy="-1.2em">BT</tspan><tspan x="0" dy="1.2em">clear</tspan>
 </text>
 <text x="0" y="24" class="key hold">hold 1s</text>
 </g>
@@ -1063,14 +1072,6 @@ svg.keymap { font-family: Inter, -apple-system, Helvetica, sans-serif; }
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key held side"/>
 <rect rx="4" ry="4" x="-20" y="-24" width="40" height="40" class="key held"/>
 </g>
-<g class="combo combopos-0">
-<path d="M420,91 l-149,0" class="combo"/>
-<path d="M420,91 l149,0" class="combo"/>
-<rect rx="6" ry="6" x="406" y="78" width="28" height="26" class="combo"/>
-<text x="420" y="91" class="combo tap">
-<tspan x="420" dy="-0.6em">Caps</tspan><tspan x="420" dy="1.2em">Word</tspan>
-</text>
-</g>
 </g>
 </g>
 <g transform="translate(30, 1323)" class="layer-MACRO">
@@ -1284,14 +1285,6 @@ svg.keymap { font-family: Inter, -apple-system, Helvetica, sans-serif; }
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key trans side"/>
 <rect rx="4" ry="4" x="-20" y="-24" width="40" height="40" class="key trans"/>
 <text x="0" y="-4" class="key trans tap">▽</text>
-</g>
-<g class="combo combopos-0">
-<path d="M420,91 l-149,0" class="combo"/>
-<path d="M420,91 l149,0" class="combo"/>
-<rect rx="6" ry="6" x="406" y="78" width="28" height="26" class="combo"/>
-<text x="420" y="91" class="combo tap">
-<tspan x="420" dy="-0.6em">Caps</tspan><tspan x="420" dy="1.2em">Word</tspan>
-</text>
 </g>
 </g>
 </g>

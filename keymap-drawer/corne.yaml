@@ -221,6 +221,7 @@ combos:
   l: [ABC]
 - p: [16, 19]
   k: Caps Word
+  l: [ABC]
 - p: [8, 9]
   k: DEL
   l: [ABC]
