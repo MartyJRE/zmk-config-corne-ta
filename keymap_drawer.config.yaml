@@ -1,0 +1,27 @@
+# keymap-drawer settings: https://github.com/caksoylar/keymap-drawer/blob/main/CONFIGURATION.md
+parse_config:
+  # readable labels for custom behaviours and raw chords in the keymap
+  raw_binding_map:
+    "&bt_clr_hold 0 0": {t: "BT clear", h: "hold 1s"}
+    "&meh_seq R R": "Rename"
+    "&meh_seq R P": "Param"
+    "&meh_seq R F": "Field"
+    "&meh_seq R C": "Const"
+    "&meh_seq R M": "Method"
+    "&meh_seq C S": "Signature"
+    "&kp LG(LA(N))": "Inline"
+    "&kp LC(LA(LS(UP)))": "Clone ↑"
+    "&kp LC(LA(LS(DOWN)))": "Clone ↓"
+    "&kp LC(LA(LS(LEFT)))": "Clone ←"
+    "&kp LC(LA(LS(RIGHT)))": "Clone →"
+    "&kp LA(LG(LEFT))": "Back"
+    "&kp LA(LG(RIGHT))": "Forward"
+    "&kp LA(ENTER)": "Action"
+    "&kp LA(LS(ENTER))": "Import"
+    "&kp LA(LG(B))": "Impl"
+    "&caps_word": "Caps Word"
+draw_config:
+  append_colon_to_layer_header: false
+  draw_key_sides: true
+  svg_extra_style: |
+    svg.keymap { font-family: Inter, -apple-system, Helvetica, sans-serif; }
