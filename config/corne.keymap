@@ -40,7 +40,7 @@
 
 &caps_word {
     // when using caps word, allow for underscore and minus as they are commonly used for constants in programming languages
-    continue-list = <DELETE BACKSPACE UNDERSCORE LEFT RIGHT LCTRL RCTRL LGUI RGUI>;
+    continue-list = <DELETE BACKSPACE UNDERSCORE MINUS LEFT RIGHT LCTRL RCTRL LGUI RGUI>;
 };
 
 &mt {
@@ -252,7 +252,7 @@
         compatible = "zmk,keymap";
 
         default_layer {
-            label = BASE_TEXT;
+            display-name = BASE_TEXT;
             bindings = <
                            // @formatter:off
             // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
@@ -273,7 +273,7 @@
         };
 
         lower_layer {
-            label = NUMBERS_TEXT;
+            display-name = NUMBERS_TEXT;
             bindings = <
                            // @formatter:off
             // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
@@ -294,7 +294,7 @@
         };
 
         raise_layer {
-            label = SYMBOLS_TEXT;
+            display-name = SYMBOLS_TEXT;
             bindings = <
                            // @formatter:off
             // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
@@ -315,7 +315,7 @@
         };
 
         tri_layer {
-            label = SYSTEM_TEXT;
+            display-name = SYSTEM_TEXT;
             bindings = <
                            // @formatter:off
             // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
@@ -336,7 +336,7 @@
         };
 
         macro_layer {
-            label = MACROS_TEXT;
+            display-name = MACROS_TEXT;
             bindings = <
                            // @formatter:off
             // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
