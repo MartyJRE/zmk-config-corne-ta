@@ -112,6 +112,17 @@
             bindings = <&bt_clr_macro>, <&none>;
             display-name = "BT clear (hold)";
         };
+
+        // &mt without quick-tap, so tap-then-hold on a modifier key still gives the modifier
+        mt_mod: mt_mod {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            tapping-term-ms = <250>;
+            flavor = "tap-preferred";
+            require-prior-idle-ms = <100>;
+            bindings = <&kp>, <&kp>;
+            display-name = "Mod-Tap";
+        };
     };
 };
 
@@ -167,11 +178,11 @@
             layers = <BASE>;
         };
 
-        // Macro layer - inner thumbs (BSPC+TAB); tap = one-shot, hold = momentary
+        // Macro layer - middle thumbs (SPACE+ENTER); tap = one-shot, hold = momentary
         combo_macros {
             require-prior-idle-ms = <100>;
             timeout-ms = <50>;
-            key-positions = <38 39>;
+            key-positions = <37 40>;
             bindings = <&sl MACROS>;
             layers = <BASE>;
         };
@@ -207,13 +218,13 @@
                 &kp DEL        &mt RG(Q) Q  &mt RG(W) W  &kp E         &mt RG(R) R     &mt RG(T) T        &kp Y         &kp U         &kp I         &kp O    &kp P              &kp BSLH
             // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
             // │  ESC / CTRL │  A / Cmd+A  │  S / Cmd+S  │  D / [      │  F / (      │  G / {      │   │  H / }      │  J / )      │  K / ]      │  L          │  ;          │  '          │
-                &mt LCTRL ESC  &mt RG(A) A  &mt RG(S) S  &mt LBKT D    &mt LPAR F      &mt LBRC G         &mt RBRC H    &mt RPAR J    &mt RBKT K    &kp L    &kp SEMI           &kp SQT
+                &mt_mod LCTRL ESC &mt RG(A) A  &mt RG(S) S  &mt LBKT D    &mt LPAR F      &mt LBRC G         &mt RBRC H    &mt RPAR J    &mt RBKT K    &kp L    &kp SEMI           &kp SQT
             // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
             // │  SHIFT      │  Z / Cmd+Z  │  X / Cmd+X  │  C / Cmd+C  │  V / Cmd+V  │  B / Cmd+B  │   │  N / GUI    │  M          │  ,          │  .          │  / / Cmd+/  │  SHIFT      │
                 &kp LSHFT      &mt RG(Z) Z  &mt RG(X) X  &mt RG(C) C   &mt RG(V) V     &mt RG(B) B        &mt LGUI N    &kp M         &kp COMMA     &kp DOT  &mt LG(FSLH) FSLH  &kp RSHFT
             // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
             //                                           │  NUMBERS    │  SPACE/GUI  │  BSPC       │   │  TAB / GUI  │  ENTER/ALT  │  SYMBOLS    │
-                                                         &mo NUMBERS   &mt RGUI SPACE  &kp BSPC           &mt RGUI TAB  &mt RALT RET  &mo SYMBOLS
+                                                         &mo NUMBERS   &mt_mod RGUI SPACE  &kp BSPC     &mt_mod RGUI TAB  &mt_mod RALT RET  &mo SYMBOLS
             //                                           ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
                            // @formatter:on
                        >;
@@ -233,8 +244,8 @@
             // │             │             │             │  CTRL       │  ALT        │  Cmd+Opt+B  │   │             │  ←          │  ↓          │  →          │             │             │
                 &trans         &trans       &trans       &kp LCTRL     &kp LALT      &kp LA(LG(B))      &trans        &kp LEFT      &kp DOWN      &kp RIGHT     &trans        &trans
             // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
-            //                                           │             │             │             │   │             │             │             │
-                                                         &trans        &trans        &trans             &kp LS(TAB)   &trans        &trans
+            //                                           │             │             │             │   │  S+TAB / GUI│             │             │
+                                                         &trans        &trans        &trans             &mt_mod RGUI LS(TAB) &trans &trans
             //                                           ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
                            // @formatter:on
                        >;
