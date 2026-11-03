@@ -7,7 +7,7 @@ layers:
   - E
   - {t: R, h: Gui+R}
   - {t: T, h: Gui+T}
-  - {t: Y, h: MACRO}
+  - Y
   - U
   - I
   - O
@@ -174,39 +174,39 @@ layers:
   - {type: held}
   MACRO:
   - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - Kill pane
+  - Windows
+  - New win
   - Rename
-  - {t: ▽, type: trans}
-  - {type: held}
-  - {t: ▽, type: trans}
+  - Sessions
+  - Float
+  - Prev win
   - Inline
-  - {t: ▽, type: trans}
+  - Next win
   - Param
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - Last win
   - Signature
-  - {t: ▽, type: trans}
+  - Split ↓
   - Field
+  - claudia
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
+  - Pane ↑
+  - {t: ▽, type: trans}
+  - Scroll
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - Zoom
   - {t: ▽, type: trans}
   - Const
+  - Split →
+  - Ctrl+B
   - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - Method
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - Pane ←
+  - Pane ↓
+  - Pane →
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -227,4 +227,7 @@ combos:
   l: [ABC]
 - p: [27, 28]
   k: _
+  l: [ABC]
+- p: [38, 39]
+  k: Macro
   l: [ABC]
