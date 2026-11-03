@@ -83,7 +83,7 @@ layers:
   - {type: held}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - Sft+TAB
+  - {t: Sft+TAB, h: RGUI}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   $!?:
@@ -228,6 +228,6 @@ combos:
 - p: [27, 28]
   k: _
   l: [ABC]
-- p: [38, 39]
+- p: [37, 40]
   k: Macro
   l: [ABC]
