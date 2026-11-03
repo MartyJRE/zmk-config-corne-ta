@@ -14,6 +14,7 @@ the keymap, so it is always current.
 
 - Home row holds: `A S Z X C V B Q W R T` send Cmd + letter, `D F G H J K` send brackets.
 - Thumbs: Numbers / Space (Cmd) / Backspace and Tab (Cmd) / Enter (Alt) / Symbols.
-  Holding Numbers and Symbols together gives the System layer. Holding `Y` gives the Macro layer.
-- Combos: `J`+`K` Escape, `F`+`J` Caps Word, `I`+`O` Delete, `C`+`V` underscore.
-- The Macro layer drives IntelliJ refactorings through the Meh (Ctrl+Alt+Shift) chords.
+  Holding Numbers and Symbols together gives the System layer. Backspace + Tab together gives the Macro layer: tap for one key, hold for several.
+- Combos: `J`+`K` Escape, `F`+`J` Caps Word, `I`+`O` Delete, `C`+`V` underscore, Backspace+Tab Macro layer.
+- The Macro layer drives IntelliJ refactorings through the Meh (Ctrl+Alt+Shift) chords, and tmux through
+  `Ctrl+B` sequences (pane arrows sit where the Numbers arrows are, `G` toggles claudia).
